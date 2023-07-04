@@ -13,6 +13,7 @@
     └─ playground # functions에 저장된 함수들을 자유롭게 사용하고 테스트하는 폴더.
         │
         ├─ __test__
+        │   │
         │   └─ playground.test.js # 테스트를 작성하는 파일.
         │
         └─ playground.js # 함수를 작성하는 파일.
@@ -24,6 +25,10 @@
 
 ```
 yarn install
+
+or
+
+npm install
 ```
 
 **폴더 이름을 통해 특정 테스트 실행합니다.**
@@ -32,10 +37,18 @@ yarn install
 
 ```
 yarn test -- 'operation'
+
+or
+
+npm test -- 'operation'
 ```
 
 - `/src/playground` 폴더의 함수를 테스트하는 경우.
 
 ```
 yarn test -- 'playground'
+
+or
+
+npm test -- 'playground'
 ```
