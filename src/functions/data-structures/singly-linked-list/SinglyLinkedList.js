@@ -20,6 +20,13 @@ export class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+  *[Symbol.iterator]() {
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode;
+      currentNode = currentNode.next;
+    }
+  }
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -33,3 +40,5 @@ export class SinglyLinkedList {
     return this;
   }
 }
+
+const list = new SinglyLinkedList();
