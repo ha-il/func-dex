@@ -39,6 +39,23 @@ export class SinglyLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    if (this.length === 0) return undefined;
+    let deletedNode = this.head;
+    let newTailNode = deletedNode;
+    while (deletedNode.next) {
+      newTailNode = deletedNode;
+      deletedNode = deletedNode.next;
+    }
+    this.tail = newTailNode;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return deletedNode;
+  }
 }
 
 const list = new SinglyLinkedList();
