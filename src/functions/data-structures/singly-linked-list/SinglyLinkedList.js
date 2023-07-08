@@ -56,6 +56,14 @@ export class SinglyLinkedList {
     }
     return deletedNode;
   }
+  shift() {
+    if (this.head === 0) return undefined;
+    let deletedNode = this.head;
+    this.head = deletedNode.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return deletedNode;
+  }
 }
-
-const list = new SinglyLinkedList();
