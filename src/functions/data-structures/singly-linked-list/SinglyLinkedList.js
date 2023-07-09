@@ -66,4 +66,25 @@ export class SinglyLinkedList {
     }
     return deletedNode;
   }
+  unshift(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter++ < index) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
 }
