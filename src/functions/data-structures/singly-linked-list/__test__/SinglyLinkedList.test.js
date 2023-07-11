@@ -20,3 +20,16 @@ test("set", () => {
   list.set("a", 0);
   expect(list.values()).toEqual(["a", "b", "c", "d"]);
 });
+
+test("insert", () => {
+  list.insert(0, "z");
+  list.insert(5, "f");
+  expect(list.values()).toEqual(["z", "a", "b", "c", "d", "f"]);
+});
+
+test("remove", () => {
+  list.remove(5);
+  list.remove(0);
+  list.remove(1);
+  expect(list.values()).toEqual(["a", "c", "d"]);
+});

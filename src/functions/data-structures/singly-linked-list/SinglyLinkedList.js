@@ -100,4 +100,26 @@ export class SinglyLinkedList {
     }
     return currentList;
   }
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unshift(value);
+    let newNode = new Node(value);
+    let prevNode = this.get(index - 1);
+    let temp = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+    let prevNode = this.get(index - 1);
+    let targetNode = prevNode.next;
+    prevNode.next = targetNode.next;
+    this.length--;
+    return targetNode;
+  }
 }
