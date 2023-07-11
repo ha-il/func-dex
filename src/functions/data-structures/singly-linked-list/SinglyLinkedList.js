@@ -87,4 +87,17 @@ export class SinglyLinkedList {
     }
     return currentNode;
   }
+  set(value, index) {
+    const foundNode = this.get(index);
+    if (!foundNode) return false;
+    foundNode.value = value;
+    return true;
+  }
+  values() {
+    const currentList = [];
+    for (const n of this) {
+      currentList.push(n.value);
+    }
+    return currentList;
+  }
 }

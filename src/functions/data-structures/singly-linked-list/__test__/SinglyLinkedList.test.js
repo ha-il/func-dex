@@ -14,6 +14,9 @@ test("unshift z", () => {
 test("get", () => {
   list.push("c");
   list.push("d");
-
   expect(list.get(1).value).toBe("b");
+});
+test("set", () => {
+  list.set("a", 0);
+  expect(list.values()).toEqual(["a", "b", "c", "d"]);
 });
