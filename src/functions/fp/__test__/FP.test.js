@@ -14,6 +14,7 @@ import {
   go1,
   delay,
   C,
+  tap,
 } from "../FP.js";
 
 const f = pipe(
@@ -216,4 +217,14 @@ test("C.filter", async () => {
   expect(await C.filter((a) => delay(1000, a % 2), [1, 2, 3, 4])).toEqual([
     1, 3,
   ]);
+});
+
+test("tap", () => {
+  expect(
+    go(
+      [1, 2, 3, 4, 5],
+      tap(map((a) => a + 1)),
+      map((a) => a * a)
+    )
+  ).toEqual([1, 4, 9, 16, 25]);
 });

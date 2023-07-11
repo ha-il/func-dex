@@ -92,13 +92,18 @@ export const take = curry((l, iter) => {
   })();
 });
 
-// go, pipe, takeAll
+// go, pipe, tap takeAll
 export const go = (...args) => reduce((a, f) => f(a), args);
 
 export const pipe =
   (f, ...fs) =>
   (...as) =>
     go(f(...as), ...fs);
+
+export const tap =
+  (f, ...fs) =>
+  (a, ...as) =>
+    go1(reduce(go1, f(a, ...as), fs), (_) => a);
 
 export const takeAll = take(Infinity);
 
