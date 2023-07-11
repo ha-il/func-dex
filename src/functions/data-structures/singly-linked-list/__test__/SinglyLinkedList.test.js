@@ -33,3 +33,8 @@ test("remove", () => {
   list.remove(1);
   expect(list.values()).toEqual(["a", "c", "d"]);
 });
+
+test("reverse", () => {
+  list.reverse();
+  expect(list.values()).toEqual(["d", "c", "a"]);
+});
