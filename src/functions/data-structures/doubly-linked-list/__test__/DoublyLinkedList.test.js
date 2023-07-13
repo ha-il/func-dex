@@ -7,3 +7,10 @@ test("push", () => {
   list.push("b");
   expect(list.tail.value).toBe("b");
 });
+
+test("pop", () => {
+  list.pop();
+  expect(list.tail.value).toBe("a");
+  list.pop();
+  expect(list.tail).toBe(null);
+});

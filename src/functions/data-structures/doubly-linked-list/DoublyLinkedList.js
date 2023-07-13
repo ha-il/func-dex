@@ -34,4 +34,18 @@ export class DoublyLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    if (this.length === 0) return undefined;
+    const targetNode = this.tail;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+      targetNode.prev = null;
+    }
+    this.length--;
+    return targetNode;
+  }
 }
