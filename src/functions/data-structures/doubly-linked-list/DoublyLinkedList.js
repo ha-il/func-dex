@@ -21,6 +21,20 @@ export class DoublyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+  *[Symbol.iterator]() {
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode;
+      currentNode = currentNode.next;
+    }
+  }
+  values() {
+    const currentList = [];
+    for (const n of this) {
+      currentList.push(n.value);
+    }
+    return currentList;
+  }
   push(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
@@ -44,6 +58,33 @@ export class DoublyLinkedList {
       this.tail = this.tail.prev;
       this.tail.next = null;
       targetNode.prev = null;
+    }
+    this.length--;
+    return targetNode;
+  }
+  unshift(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  shift() {
+    if (this.length === 0) return undefined;
+    const targetNode = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = targetNode.next;
+      this.head.prev = null;
+      targetNode.next = null;
     }
     this.length--;
     return targetNode;
