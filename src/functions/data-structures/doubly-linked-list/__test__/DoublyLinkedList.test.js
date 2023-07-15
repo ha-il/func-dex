@@ -27,3 +27,13 @@ test("unshift", () => {
   list.unshift("a");
   expect(list.values()).toEqual(["a", "b", "c"]);
 });
+
+test("get", () => {
+  expect(list.get(1).value).toBe("b");
+  expect(list.get(2).value).toBe("c");
+});
+
+test("set", () => {
+  list.set(1, "BE!");
+  expect(list.values()).toEqual(["a", "BE!", "c"]);
+});

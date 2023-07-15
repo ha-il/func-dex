@@ -14,7 +14,6 @@ export class Node {
     this.next = null;
   }
 }
-
 export class DoublyLinkedList {
   constructor() {
     this.head = null;
@@ -88,5 +87,36 @@ export class DoublyLinkedList {
     }
     this.length--;
     return targetNode;
+  }
+  get(index) {
+    if (index < 0 || index > this.length) return null;
+
+    const midIndex = Math.floor(this.length / 2);
+    let targetNode, counter;
+
+    if (index <= midIndex) {
+      targetNode = this.head;
+      counter = 0;
+      while (counter !== index) {
+        targetNode = targetNode.next;
+        counter++;
+      }
+    } else {
+      targetNode = this.tail;
+      counter = this.length - 1;
+      while (counter !== index) {
+        targetNode = targetNode.next;
+        counter--;
+      }
+    }
+    return targetNode;
+  }
+  set(index, value) {
+    const targetNode = this.get(index);
+    if (targetNode) {
+      targetNode.value = value;
+      return true;
+    }
+    return false;
   }
 }
