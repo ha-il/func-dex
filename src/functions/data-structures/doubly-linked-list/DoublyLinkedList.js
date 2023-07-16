@@ -119,4 +119,21 @@ export class DoublyLinkedList {
     }
     return false;
   }
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return !!this.unshift(value);
+    if (index === this.length) return !!this.push(value);
+
+    const targetNode = this.get(index - 1);
+    const nextNode = targetNode.next;
+    const newNode = new Node(value);
+
+    newNode.prev = targetNode;
+    newNode.next = nextNode;
+    targetNode.next = newNode;
+    newNode.prev = newNode;
+
+    this.length++;
+    return true;
+  }
 }

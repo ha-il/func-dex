@@ -37,3 +37,8 @@ test("set", () => {
   list.set(1, "BE!");
   expect(list.values()).toEqual(["a", "BE!", "c"]);
 });
+
+test("insert", () => {
+  list.insert(1, "b");
+  expect(list.values()).toEqual(["a", "b", "BE!", "c"]);
+});
