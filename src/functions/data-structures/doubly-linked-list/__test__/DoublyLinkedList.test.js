@@ -42,3 +42,8 @@ test("insert", () => {
   list.insert(1, "b");
   expect(list.values()).toEqual(["a", "b", "BE!", "c"]);
 });
+
+test("remove", () => {
+  list.remove(2);
+  expect(list.values()).toEqual(["a", "b", "c"]);
+});
