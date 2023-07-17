@@ -124,14 +124,14 @@ export class DoublyLinkedList {
     if (index === 0) return !!this.unshift(value);
     if (index === this.length) return !!this.push(value);
 
+    const newNode = new Node(value);
     const targetNode = this.get(index - 1);
     const nextNode = targetNode.next;
-    const newNode = new Node(value);
 
+    targetNode.next = newNode;
     newNode.prev = targetNode;
     newNode.next = nextNode;
-    targetNode.next = newNode;
-    newNode.prev = newNode;
+    nextNode.prev = newNode;
 
     this.length++;
     return true;
