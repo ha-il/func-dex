@@ -1,3 +1,9 @@
+/* 스택
+- 시간 복잡도
+  - 삽입: O(1)
+  - 삭제: O(1)
+*/
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -21,7 +27,7 @@ class Stack {
       this.first = newNode;
       newNode.next = nextNode;
     }
-    return this.size++;
+    return ++this.size;
   }
   pop() {
     if (this.size === 0) return null;
