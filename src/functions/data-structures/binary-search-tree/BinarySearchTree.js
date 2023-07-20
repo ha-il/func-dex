@@ -1,3 +1,12 @@
+/* 이중 연결 리스트
+- 시간 복잡도
+  - 접근: O(log(n))
+  - 탐색: O(log(n))
+  - 삽입: O(log(n))
+  - 삭제: O(log(n))
+- 공간 복잡도: O(n)
+*/
+
 export class Node {
   constructor(value) {
     this.value = value;
@@ -33,5 +42,20 @@ export class BinarySearchTree {
         currentNode = currentNode.right;
       }
     }
+  }
+  contains(value) {
+    if (this.root === null) return false;
+    let currentNode = this.root;
+    let found = false;
+    while (currentNode && !found) {
+      if (value < currentNode.value) {
+        currentNode = currentNode.left;
+      } else if (value > currentNode.value) {
+        currentNode = currentNode.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 }

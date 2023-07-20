@@ -11,3 +11,5 @@ test("insert", () => {
   tree.insert(6);
   expect(tree.root.left.left.value).toBe(6);
 });
+test("contains 9", () => expect(tree.contains(9)).toBe(true));
+test("contains 100", () => expect(tree.contains(100)).toBe(false));
