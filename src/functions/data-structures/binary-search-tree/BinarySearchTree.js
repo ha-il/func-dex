@@ -73,4 +73,14 @@ export class BinarySearchTree {
 
     return result;
   }
+  DFSPreOrder() {
+    const result = [];
+    const preOrder = (node) => {
+      result.push(node);
+      if (node.left) preOrder(node.left);
+      if (node.right) preOrder(node.right);
+    };
+    preOrder(this.root);
+    return result;
+  }
 }
