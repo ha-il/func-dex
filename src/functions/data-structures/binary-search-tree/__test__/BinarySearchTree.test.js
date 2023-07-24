@@ -23,3 +23,5 @@ test("DFS PostOrder", () =>
   expect(tree.DFSPostOrder().map((n) => n.value)).toEqual([
     3, 8, 6, 20, 15, 10,
   ]));
+test("DFS InOrder", () =>
+  expect(tree.DFSInOrder().map((n) => n.value)).toEqual([3, 6, 8, 10, 15, 20]));

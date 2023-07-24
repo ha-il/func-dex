@@ -93,4 +93,14 @@ export class BinarySearchTree {
     postOrder(this.root);
     return result;
   }
+  DFSInOrder() {
+    const result = [];
+    const InOrder = (node) => {
+      if (node.left) InOrder(node.left);
+      result.push(node);
+      if (node.right) InOrder(node.right);
+    };
+    InOrder(this.root);
+    return result;
+  }
 }
