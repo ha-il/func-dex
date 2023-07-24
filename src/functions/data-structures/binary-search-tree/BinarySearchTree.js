@@ -83,4 +83,14 @@ export class BinarySearchTree {
     preOrder(this.root);
     return result;
   }
+  DFSPostOrder() {
+    const result = [];
+    const postOrder = (node) => {
+      if (node.left) postOrder(node.left);
+      if (node.right) postOrder(node.right);
+      result.push(node);
+    };
+    postOrder(this.root);
+    return result;
+  }
 }
