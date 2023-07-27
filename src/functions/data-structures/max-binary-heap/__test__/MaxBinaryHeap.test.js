@@ -12,3 +12,8 @@ test("insert", () => {
   heap.insert(55);
   expect(heap.values).toEqual([55, 39, 41, 18, 27, 12, 33]);
 });
+
+test("extractMax", () => {
+  heap.extractMax();
+  expect(heap.values).toEqual([41, 39, 33, 18, 27, 12]);
+});
