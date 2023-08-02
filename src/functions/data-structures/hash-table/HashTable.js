@@ -41,4 +41,16 @@ export class HashTable {
     }
     return undefined;
   }
+  values() {
+    let store = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          let value = this.keyMap[i][j][1];
+          if (!store.includes(value)) store.push(value);
+        }
+      }
+    }
+    return store;
+  }
 }
